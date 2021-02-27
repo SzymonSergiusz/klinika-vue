@@ -56,7 +56,9 @@ export default {
     })
 
     function signUp() {
-        console.log("witam")
+
+        
+
     }
     
     

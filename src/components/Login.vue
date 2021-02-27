@@ -1,6 +1,6 @@
 <template>
     <div class="login__div">
-            <form class="login-form" id="loginForm" @submit.prevent="login()">
+            <form class="login-form" name="loginForm" @submit.prevent="login(state.loginInput, state.passwordInput)">
             
             <label for="loginInput">Login</label>
             <input class="nice-input" v-model="state.loginInput" name="loginInput" type="text">
@@ -12,7 +12,7 @@
             <button class="nice-button">Zaloguj</button>
             <!-- </router-link> -->
 
-            <div class="login__error" v-if="state.falseData">Błędne dane logowania</div>
+            <div class="login__error" v-if="state.falseData">{{state.falseDataMessage}}</div>
 
             <router-link to="/signup">
             <div class="signInLink">Nie posiadasz jeszcze konta? <strong>Zarejestruj się!</strong></div>
@@ -25,6 +25,7 @@
 <script>
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router'
+import axios from 'axios';
 export default {
     name: "Login",
     components: {  },
@@ -34,13 +35,30 @@ export default {
         const state = reactive({
             loginInput:'',
             passwordInput: '',
-            falseData: false
+            falseData: false,
+            falseDataMessage: ''
         })
 
-        function login() {
-            if (state.loginInput == 'admin' && state.passwordInput == '123') {
-                route.push('user')
-            } else state.falseData = true
+        function login(login, password) {
+            
+            axios.post('http://localhost/fake-response/login.php',{
+                'login': login,
+                'password': password
+                })
+            .then(function (response) {
+                console.log(response.data)
+                if (response.data.succesfulLog) {
+                    //tu dodać vuex z userem
+                    route.push('user')
+                } else {
+                    state.falseData = true
+                    state.falseDataMessage = response.data.message
+                }
+                
+            }).catch(function (error) {
+                console.log(error)
+            });
+            
         }
 
 
