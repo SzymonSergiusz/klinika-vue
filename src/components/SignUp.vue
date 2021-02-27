@@ -30,10 +30,11 @@
             
             <br>
             <!-- <router-link to="/user"> -->
-            <button class="nice-button">Zaloguj</button>
+            <button class="nice-button">Zarejestruj się</button>
             <!-- </router-link> -->
 
             <router-link to="/">
+            <div class="failureMessage" v-if="state.failureSigning">{{state.failureMessage}}</div>
             <div class="signInLink">Posiadasz już konto? <strong>Zaloguj się!</strong></div>
             </router-link>
         </form>
@@ -43,21 +44,42 @@
 
 <script>
 import { reactive } from "vue"
+import axios from "axios"
 export default {
     name: 'SignUp',
     setup() {
         // const route = useRouter()
         const state = reactive({
             firstnameInput: '',
-            surname: '',
+            surnameInput: '',
             loginInput:'',
             passwordInput: '',
             passwordValidInput: '',
+            failureSigning: false,
+            failureMessage: ''
     })
 
     function signUp() {
+        axios.post("http://localhost/fake-response/signup.php", {
+            firstname: state.firstnameInput,
+            surname: state.surnameInput,
+            login: state.loginInput,
+            password: state.passwordInput,
+            passwordValid: state.passwordValidInput,
+        })
+        .then(function (response) {
+            
+            if (response.data.succesfulSign) {
+                console.log(response.data)    
+            } else {
+                state.failureSigning = true
+                state.failureMessage = response.data.message
+            }
+        })
+        .catch(function (error) {
+            console.log(error)
+        })
 
-        
 
     }
     
@@ -105,7 +127,7 @@ export default {
         }
 
 
-    .login__error {
+    .failureMessage {
         font-size: 20px;
         color: red;
 
