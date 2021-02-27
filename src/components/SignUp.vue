@@ -70,12 +70,15 @@ export default {
             passwordValid: state.passwordValidInput,
         })
         .then(function (response) {
-            console.log(response.data.succesfulSign)
-            if (response.data.succesfulSign) {
+            console.log(response.data)
+
+            if (response.data.succesful) {
                 console.log(response.data)
+                console.log('aaaaaaaaaaa')
                 router.push('/')
                   
             } else {
+                console.log('bbbbbbbbbbbb')
                 state.failureSigning = true
                 state.failureMessage = response.data.message
             }
