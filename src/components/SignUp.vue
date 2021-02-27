@@ -44,11 +44,12 @@
 
 <script>
 import { reactive } from "vue"
+import { useRouter } from "vue-router"
 import axios from "axios"
 export default {
     name: 'SignUp',
     setup() {
-        // const route = useRouter()
+        const router = useRouter()
         const state = reactive({
             firstnameInput: '',
             surnameInput: '',
@@ -60,6 +61,7 @@ export default {
     })
 
     function signUp() {
+        
         axios.post("http://localhost/fake-response/signup.php", {
             firstname: state.firstnameInput,
             surname: state.surnameInput,
@@ -68,9 +70,11 @@ export default {
             passwordValid: state.passwordValidInput,
         })
         .then(function (response) {
-            
+            console.log(response.data.succesfulSign)
             if (response.data.succesfulSign) {
-                console.log(response.data)    
+                console.log(response.data)
+                router.push('/')
+                  
             } else {
                 state.failureSigning = true
                 state.failureMessage = response.data.message
