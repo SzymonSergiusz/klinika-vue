@@ -26,6 +26,8 @@
 import { reactive } from 'vue';
 import { useRouter } from 'vue-router'
 import axios from 'axios';
+import store from '../store';
+
 export default {
     name: "Login",
     components: {  },
@@ -49,7 +51,12 @@ export default {
                 console.log(response.data)
                 if (response.data.succesfulLog) {
                     //tu dodać vuex z userem
-                    route.push('user')
+                    store.state.UserStore.userId = response.data.id
+                    store.state.UserStore.isLogged = true
+                    store.state.UserStore.firstname = response.data.firstname
+                    const userId = store.state.UserStore.userId
+                    route.push(`user${userId}`)
+                    // route.push(`user`)
                 } else {
                     state.falseData = true
                     state.falseDataMessage = response.data.message

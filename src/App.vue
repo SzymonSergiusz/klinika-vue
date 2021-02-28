@@ -3,7 +3,10 @@
   <nav>
     <div class="navigation__logo">
       Klinika
+        <div class="hello-name">Witaj {{firstname}}</div>
     </div>
+
+
   </nav>
 
   <router-view/>
@@ -11,10 +14,18 @@
 </template>
 
 <script>
+import { computed } from 'vue'
+import store from './store'
 
 export default {
   name: 'App',
-  components: {  }
+  components: {  },
+  setup() {
+    const firstname = computed( () => store.state.UserStore.firstname);
+    return {
+      firstname
+    }
+  }
 }
 </script>
 
@@ -23,9 +34,21 @@ export default {
 .navigation__logo {
   background-color: crimson;
   font-size: 60px;
+  padding-left: 20px;
   padding: 10px;
   color: white;
+  
+  .hello-name {
+    padding: 20px;
+    float: right;
+    display: grid;
+    font-size: 35px;
+    color: whitesmoke;
+    text-align: right;
+    }
 }
+
+
 
 
 .nice-div {
