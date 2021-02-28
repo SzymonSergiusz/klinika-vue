@@ -4,7 +4,7 @@ import UserHome from '../views/UserHome.vue'
 import SignUp from '../components/SignUp'
 import Login from '../components/Login'
 import store from '../store'
-
+import UserVisits from '../components/UserVisits'
 const routes = [
   {
     path: '/',
@@ -25,6 +25,11 @@ const routes = [
     name: 'SignUp',
     component: SignUp
   },
+  {
+    path: '/user:userId/visits',
+    name: 'UserVisits',
+    component: UserVisits
+  }
 
   
 ]
@@ -42,7 +47,10 @@ router.beforeEach(async (to, from, next) => {
   const requiresLogged = to.matched.some(record => record.meta.requiresLogged)
 
   if (requiresLogged && !isLogged && userId!=null) next({name: 'Login'})
+  // else if (isLogged) next({name: 'UserHome'})
   else next()
+
+
   // if (isLogged && userId != null) {
   //   next({path: `/user${userId}`})
   // } else {

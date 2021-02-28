@@ -1,6 +1,6 @@
 <template>
 <div id="app">
-  <nav>
+  <nav style="nav">
     <div class="navigation__logo">
       Klinika
         <div class="hello-name">Witaj {{firstname}}</div>
@@ -31,7 +31,11 @@ export default {
 
 <style lang='scss'>
 
+
+
 .navigation__logo {
+  // float: left;
+  width: 100%;
   background-color: crimson;
   font-size: 60px;
   padding-left: 20px;
