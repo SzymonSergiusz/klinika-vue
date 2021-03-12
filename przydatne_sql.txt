@@ -9,4 +9,61 @@ CREATE TABLE `users` (
 
 
 INSERT INTO `users` VALUES(DEFAULT, 'Karol', 'Krawczyk', 'krawczyk', '123')
-ALTER TABLE `users` MODIFY`id` int NOT NULL AUTO_INCREMENT;
+ALTER TABLE `lekarze` MODIFY`id` int NOT NULL AUTO_INCREMENT;
+
+
+
+CREATE TABLE `lekarze` (
+	id int NOT NULL UNIQUE,
+	firstname varchar(255),
+	surname varchar(255),
+	specification varchar(255),
+)
+
+INSERT INTO `lekarze` VALUES(DEFAULT, 'Franciszek', 'Kowalski', 'Lekarz rodzinny');
+INSERT INTO `lekarze` VALUES(DEFAULT, 'Mateusz', 'Nowak', 'Dermatolog');
+
+CREATE TABLE `terminy` (
+	id_lekarza int NOT NULL,
+	registration_time varchar(255),
+	is_booked bit
+)
+
+INSERT INTO `terminy` VALUES('1', '8:00', 0);
+INSERT INTO `terminy` VALUES('1', '8:20', 0);
+INSERT INTO `terminy` VALUES('1', '8:40', 0);
+INSERT INTO `terminy` VALUES('1', '9:00', 0);
+INSERT INTO `terminy` VALUES('1', '9:20', 0);
+INSERT INTO `terminy` VALUES('1', '9:40', 0);
+INSERT INTO `terminy` VALUES('1', '10:00', 0);
+INSERT INTO `terminy` VALUES('1', '10:20', 0);
+INSERT INTO `terminy` VALUES('1', '10:40', 0);
+INSERT INTO `terminy` VALUES('1', '11:00', 0);
+INSERT INTO `terminy` VALUES('1', '11:20', 0);
+INSERT INTO `terminy` VALUES('1', '11:40', 0);
+INSERT INTO `terminy` VALUES('1', '12:00', 0);
+INSERT INTO `terminy` VALUES('1', '12:20', 0);
+INSERT INTO `terminy` VALUES('1', '12:40', 0);
+INSERT INTO `terminy` VALUES('1', '13:00', 0);
+INSERT INTO `terminy` VALUES('1', '13:20', 0);
+INSERT INTO `terminy` VALUES('1', '13:40', 0);
+
+
+INSERT INTO `terminy` VALUES('2', '14:20', 0);
+INSERT INTO `terminy` VALUES('2', '14:40', 0);
+INSERT INTO `terminy` VALUES('2', '15:00', 0);
+INSERT INTO `terminy` VALUES('2', '15:20', 0);
+INSERT INTO `terminy` VALUES('2', '15:40', 0);
+INSERT INTO `terminy` VALUES('2', '16:00', 0);
+INSERT INTO `terminy` VALUES('2', '16:20', 0);
+INSERT INTO `terminy` VALUES('2', '16:40', 0);
+INSERT INTO `terminy` VALUES('2', '17:00', 0);
+INSERT INTO `terminy` VALUES('2', '17:20', 0);
+INSERT INTO `terminy` VALUES('2', '17:40', 0);
+INSERT INTO `terminy` VALUES('2', '17:00', 0);
+INSERT INTO `terminy` VALUES('2', '18:20', 0);
+INSERT INTO `terminy` VALUES('2', '18:40', 0);
+INSERT INTO `terminy` VALUES('2', '19:00', 0);
+INSERT INTO `terminy` VALUES('2', '19:20', 0);
+INSERT INTO `terminy` VALUES('2', '19:40', 0);
+

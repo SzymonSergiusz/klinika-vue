@@ -16,23 +16,67 @@
                 </div>
             </div>
         </nav>
+
+        <div>
+            <!-- lekarze -->
+            <Doctor
+            v-for="doctor in state.doctors"
+            :key="doctor.id"
+            :firstname="doctor.firstname"
+            :surname="doctor.surname"
+            :specification = "doctor.specification"
+            :hours = "doctor.appointments">
+            </Doctor>
+        </div>
     </div>
 </template>
 
 // <script>
+import Doctor from '../components/Doctor'
+import axios from 'axios';
 // import store from '../store'
-// import {reactive} from 'vue'
+import {reactive} from 'vue'
 export default {
     name: 'UserHome',
-    // setup() {
-    //     const state = reactive({
-    //         userId: store.state.UserStore.userId
-    //     })
-    //     return {
-    //         state
-    //     }
-    // }
+    components: {Doctor},
+    setup() {
+        const state = reactive({
+            // userId: store.state.UserStore.userId
+            doctors: Array(),
+        
+        })
+
+        getDoctors(state.doctors)
+        console.log(state.doctors)
+        
+        return {
+            state
+        }
+
 }
+}
+
+
+        function getDoctors(docs) {
+        axios.get('http://localhost/fake-response/getDoctors.php')
+        .then(function (response) {
+
+            console.log(response.data)
+            response.data.forEach(element => {
+                // console.log(element)
+                docs.push({
+                    'id': element.id,
+                    'firstname': element.firstname,
+                    'surname': element.surname,
+                    'specification': element.specification,
+                    'appointments': element.terminy
+                })
+            });
+                })
+        .catch(function (error) {
+            console.log(error)
+        })
+        }
 </script>
 
 <style lang='scss' scoped>
