@@ -67,3 +67,9 @@ INSERT INTO `terminy` VALUES('2', '19:00', 0);
 INSERT INTO `terminy` VALUES('2', '19:20', 0);
 INSERT INTO `terminy` VALUES('2', '19:40', 0);
 
+
+CREATE TABLE `rezerwacje` (
+	id int NOT NULL UNIQUE,
+	user_id int,
+	doctor_id int,
+	termin varchar(255))

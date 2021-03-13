@@ -24,6 +24,7 @@
 <script>
 import {reactive} from 'vue'
 import store from '../store'
+import { useRouter } from "vue-router"
 import axios from 'axios'
 export default {
     name: 'Doctor',
@@ -46,6 +47,7 @@ export default {
         }
     },
     setup(props) {
+        const router = useRouter()
         const state = reactive({
             hours: props.hours,
             reg_time: "",
@@ -61,6 +63,7 @@ export default {
         })
         .then(function (response) {
             console.log(response.data)
+            router.push({name: 'UserVisits'})
         })
     }
 
