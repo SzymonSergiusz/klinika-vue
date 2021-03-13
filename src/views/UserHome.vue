@@ -1,22 +1,7 @@
 <template>
     <div>
-        <nav>
-            <div class="navigation__bar">
-                
-                <div class="zakladka">
-                    <router-link :to="{name: 'UserHome'}">
-                    Strona użytkownika
-                    </router-link>
-                </div>
-
-                <div class="zakladka">
-                    <router-link :to="{name: 'UserVisits'}">
-                        Zaplanowane wizyty
-                    </router-link>
-                </div>
-            </div>
-        </nav>
-
+        <NavBar/>
+        <router-view/>
         <div>
             <!-- lekarze -->
             <Doctor
@@ -34,11 +19,12 @@
 // <script>
 import Doctor from '../components/Doctor'
 import axios from 'axios';
+import NavBar from '../components/NavBar'
 // import store from '../store'
 import {reactive} from 'vue'
 export default {
     name: 'UserHome',
-    components: {Doctor},
+    components: {Doctor, NavBar},
     setup() {
         const state = reactive({
             // userId: store.state.UserStore.userId
@@ -80,20 +66,6 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-    .navigation__bar {
 
-        float: flex;
-        width: 100%;
-        font-size: 30px;
-        padding: 20px;
-        color: white;
-        background-color: rgb(201, 0, 0);
-
-
-        .zakladka {
-            display: inline;
-            margin: 20px;
-        }
-    }
 
 </style>
