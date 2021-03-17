@@ -7,3 +7,44 @@ a {
     color: inherit;
     
 }
+
+.obrazek {
+    height: 70px;
+}
+
+.nice-button {
+    font-size: 20px;
+    background-color: white;
+    border: 0px;
+    margin: 5px;
+    border-radius: 8px;
+    padding: 10px;
+
+
+    &:hover:enabled {
+        background-color: red;
+        color: white;
+        
+        font-size: 25px;
+    }
+}
+
+.nice-select {
+    font-size: 20px;
+    background-color: white;
+    border: 0px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.nice-card {
+    background: #da00008f;
+    color: whitesmoke;
+    font-size: 20px;
+    border-color: #ff00005e;
+    width: 40%;
+    border-width: 10px;
+    border-style: solid;
+    padding: 10px;
+    margin: 15px;
+}

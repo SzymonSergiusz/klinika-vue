@@ -1,9 +1,9 @@
 <template>
-  <div class="doctor__card">
+  <div class="nice-card">
   <h2>{{firstname}} {{surname}}</h2>
   <h4>{{specification}}</h4>
 
-    <select v-model="state.reg_time">
+    <select class="nice-select" v-model="state.reg_time">
 
      <option disabled value="">Wybierz godzinę</option>   
     <option v-for="item in state.hours" :key="item.id" :value="item">
@@ -12,7 +12,7 @@
     </option>
   </select>
 
-  <button :disabled = "state.reg_time == ''" @click="zarezerwuj()">
+  <button class="nice-button" :disabled = "state.reg_time == ''" @click="zarezerwuj()">
       Zarezerwuj wizytę
   </button>
 
@@ -89,7 +89,6 @@ export default {
     border-style: solid;
     padding: 10px;
     margin: 15px;
-
 
 }
 

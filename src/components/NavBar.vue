@@ -38,6 +38,13 @@ export default {
         .zakladka {
             display: inline;
             margin: 20px;
+
+            &:hover {
+                color: rgb(201, 0, 0);
+                border-radius: 20px;
+                padding: 15px;
+                background-color: rgba(255, 255, 255, 0.918);
+            }
         }
     }
 

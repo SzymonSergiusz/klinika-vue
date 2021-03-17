@@ -106,8 +106,13 @@ export default {
         }
 
         .nice-button {
-            font-size: 20px;
-            margin: 5px;
+            border-width: 2px;
+            border-style: solid;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            font-size: 25px;
+            margin-top: 20px;
+            // margin: 5px;
         }
 
 

@@ -5,6 +5,11 @@ export const UserStore = {
         isLogged: false,
         firstname: '',
     },
+    getters: {
+        getId (state) {
+            return state.userId
+        }
+    },
     mutations: {
         SET_USER_ID(state, userId) {
             state.userId = userId;
@@ -13,7 +18,7 @@ export const UserStore = {
     actions: {
         setUserId({ commit }, userId) {
             commit('SET_USER', userId)
-        }
+        },
     },
     modules: {
     }

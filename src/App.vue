@@ -2,7 +2,8 @@
 <div id="app">
   <nav style="nav">
     <div class="navigation__logo">
-      Klinika
+       <img class="obrazek" src="..\src\assets\esku.png" style="  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);"> Klinika <img class="obrazek" src="..\src\assets\esku.png">
         <div class="hello-name">Witaj {{firstname}}</div>
     </div>
 
