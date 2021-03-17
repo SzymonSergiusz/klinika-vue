@@ -9,6 +9,7 @@
 <script>
 import {reactive} from 'vue';
 import axios from 'axios'
+import { useRouter } from "vue-router"
 export default {
     name: 'VisitCard',
     props: {
@@ -34,6 +35,7 @@ export default {
         }
     },
     setup(props) {
+        const router = useRouter()
         const state = reactive({
             visit_id: props.visit_id,
             visit_time: props.visit_time,
@@ -48,6 +50,7 @@ export default {
             })
             .then(function (response) {
                 console.log(response.data)
+                router.push({name: 'UserHome'})
             }) 
         }
         return {
