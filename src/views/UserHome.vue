@@ -44,7 +44,7 @@ export default {
 
 
         function getDoctors(docs) {
-        axios.get('http://localhost/fake-response/getDoctors.php')
+        axios.get('https://klinikaserwer.000webhostapp.com/fake-response-pod-serwer/getDoctors.php')
         .then(function (response) {
 
             console.log(response.data)

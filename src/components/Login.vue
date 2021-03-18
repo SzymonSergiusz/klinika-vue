@@ -43,7 +43,7 @@ export default {
 
         function login(login, password) {
             
-            axios.post('http://localhost/fake-response/login.php',{
+            axios.post('https://klinikaserwer.000webhostapp.com/fake-response-pod-serwer/login.php',{
                 'login': login,
                 'password': password
                 })

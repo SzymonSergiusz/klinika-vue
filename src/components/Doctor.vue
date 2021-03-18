@@ -56,7 +56,7 @@ export default {
         
     function zarezerwuj() {
         console.log(state.reg_time.registration_time)
-        axios.post('http://localhost/fake-response/booking.php', {
+        axios.post('https://klinikaserwer.000webhostapp.com/fake-response-pod-serwer/booking.php', {
             'id_uzytkownika': store.state.UserStore.userId,
             'id_lekarza': state.reg_time.id_lekarza,
             'registration_time': state.reg_time.registration_time

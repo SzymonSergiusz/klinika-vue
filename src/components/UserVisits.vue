@@ -43,7 +43,7 @@ export default {
         getVisits(store.state.UserStore.userId, state.visits)
         
         function cancelVisit(id) {
-            axios.post('http://localhost/fake-response/cancelVisit.php', {
+            axios.post('https://klinikaserwer.000webhostapp.com/fake-response-pod-serwer/cancelVisit.php', {
                 id: id
             })
             .then(function (response) {
@@ -63,7 +63,7 @@ export default {
 function getVisits(id, visits) {
     
     // console.log(`id to ${id}`)
-    axios.post('http://localhost/fake-response/getVisits.php',{
+    axios.post('https://klinikaserwer.000webhostapp.com/fake-response-pod-serwer/getVisits.php',{
         'id':id
         })
     .then(function (response) {
