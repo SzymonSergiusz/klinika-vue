@@ -45,7 +45,7 @@ export default {
             
         })
         function cancelVisit() {
-            axios.post('https://klinikaserwer.000webhostapp.com/fake-response-pod-serwer/cancelVisit.php', {
+            axios.post('http://klinika-paie-serwer.atwebpages.com/scripts/cancelVisit.php', {
                 id: state.visit_id
             })
             .then(function (response) {

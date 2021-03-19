@@ -62,7 +62,7 @@ export default {
 
     function signUp() {
         
-        axios.post("https://klinikaserwer.000webhostapp.com/fake-response-pod-serwer/signup.php", {
+        axios.post("http://klinika-paie-serwer.atwebpages.com/scripts/signup.php", {
             firstname: state.firstnameInput,
             surname: state.surnameInput,
             login: state.loginInput,
