@@ -56,14 +56,14 @@ export default {
         
         
     function zarezerwuj() {
-        console.log(state.reg_time.registration_time)
+
         axios.post(AXIOS_LINKS.BOOKING, {
             'id_uzytkownika': store.state.UserStore.userId,
             'id_lekarza': state.reg_time.id_lekarza,
             'registration_time': state.reg_time.registration_time
         })
         .then(function (response) {
-            console.log(response.data)
+
             router.push({name: 'UserVisits'})
         })
     }

@@ -51,7 +51,6 @@ export default {
                 id: state.visit_id
             })
             .then(function (response) {
-                console.log(response.data)
                 router.push({name: 'UserHome'})
             }) 
         }

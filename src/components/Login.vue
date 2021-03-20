@@ -48,15 +48,13 @@ export default {
                 'password': password
                 })
             .then(function (response) {
-                console.log(response.data)
                 if (response.data.succesfulLog) {
-                    //tu dodać vuex z userem
                     store.state.UserStore.userId = response.data.id
                     store.state.UserStore.isLogged = true
                     store.state.UserStore.firstname = response.data.firstname
                     const userId = store.state.UserStore.userId
                     route.push(`user${userId}`)
-                    // route.push(`user`)
+
                 } else {
                     state.falseData = true
                     state.falseDataMessage = response.data.message
@@ -82,7 +80,6 @@ export default {
 
 .login__div {
     display: block;
-    // display: grid;
     grid-template-columns: 1fr 3fr;
     text-align: center;
     justify-content: center;
@@ -112,7 +109,6 @@ export default {
             padding-top: 5px;
             font-size: 25px;
             margin-top: 20px;
-            // margin: 5px;
         }
 
 

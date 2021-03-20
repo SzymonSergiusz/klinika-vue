@@ -16,7 +16,7 @@
     </div>
 </template>
 
-// <script>
+<script>
 import Doctor from '../components/Doctor'
 import axios from 'axios';
 import NavBar from '../components/NavBar'
@@ -32,7 +32,6 @@ export default {
         })
 
         getDoctors(state.doctors)
-        console.log(state.doctors)
         
         return {
             state
@@ -46,9 +45,7 @@ export default {
         axios.get(AXIOS_LINKS.GETDOCTORS)
         .then(function (response) {
 
-            console.log(response.data)
             response.data.forEach(element => {
-                // console.log(element)
                 docs.push({
                     'id': element.id,
                     'firstname': element.firstname,

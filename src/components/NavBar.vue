@@ -14,8 +14,8 @@
                     </router-link>
                 </div>
 
-                <div class="zakladka" style="float: flex;">
-                    <router-link :to="{name: 'Login'}">
+                <div class="zakladka" >
+                    <router-link :to="{name: 'Login'}" @click="logOut()">
                         Wyloguj się
                     </router-link>
                 </div>
@@ -24,10 +24,24 @@
 </template>
 
 <script>
+import store from '../store'
+
 export default {
-    name: 'NavBar'
+    name: 'NavBar',
+    setup() {
+        function logOut() {
+            store.state.UserStore.userId = null
+            store.state.UserStore.isLogged = false
+            store.state.UserStore.firstname = ""
+
+        }
+        return {
+            logOut
+        }
+    }
 
 }
+
 </script>
 
 <style lang="scss" scoped>
@@ -42,6 +56,7 @@ export default {
 
 
         .zakladka {
+            float: flex;
             display: inline;
             margin: 20px;
 
@@ -52,7 +67,6 @@ export default {
                 background-color: rgba(255, 255, 255, 0.918);
             }
         }
-
     }
 
 </style>
