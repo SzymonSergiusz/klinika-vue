@@ -1,8 +1,8 @@
 export const AXIOS_LINKS = {
-    BOOKING : 'http://localhost/fake-response/booking.php',
-    LOGIN : 'http://localhost/fake-response/login.php',
-    SIGNUP : 'http://localhost/fake-response/signup.php',
-    GETVISITS : 'http://localhost/fake-response/getVisits.php',
-    CANCELVISIT : 'http://localhost/fake-response/cancelVisit.php',
-    GETDOCTORS : 'http://localhost/fake-response/getDoctors.php'
+    BOOKING : 'http://klinika-paie-serwer.atwebpages.com/scripts/booking.php',
+    LOGIN : 'http://klinika-paie-serwer.atwebpages.com/scripts/login.php',
+    SIGNUP : 'http://klinika-paie-serwer.atwebpages.com/scripts/signup.php',
+    GETVISITS : 'http://klinika-paie-serwer.atwebpages.com/scripts/getVisits.php',
+    CANCELVISIT : 'http://klinika-paie-serwer.atwebpages.com/scripts/cancelVisit.php',
+    GETDOCTORS : 'http://klinika-paie-serwer.atwebpages.com/scripts/getDoctors.php'
 }
