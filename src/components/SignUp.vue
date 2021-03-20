@@ -46,6 +46,7 @@
 import { reactive } from "vue"
 import { useRouter } from "vue-router"
 import axios from "axios"
+import {AXIOS_LINKS} from '../links/AXIOS_LINKS'
 export default {
     name: 'SignUp',
     setup() {
@@ -62,7 +63,7 @@ export default {
 
     function signUp() {
         
-        axios.post("http://localhost/fake-response/signup.php", {
+        axios.post(AXIOS_LINKS.SIGNUP, {
             firstname: state.firstnameInput,
             surname: state.surnameInput,
             login: state.loginInput,

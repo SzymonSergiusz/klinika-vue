@@ -27,7 +27,7 @@ import { reactive } from 'vue';
 import { useRouter } from 'vue-router'
 import axios from 'axios';
 import store from '../store';
-
+import {AXIOS_LINKS} from '../links/AXIOS_LINKS'
 export default {
     name: "Login",
     components: {  },
@@ -43,7 +43,7 @@ export default {
 
         function login(login, password) {
             
-            axios.post('http://localhost/fake-response/login.php',{
+            axios.post(AXIOS_LINKS.LOGIN,{
                 'login': login,
                 'password': password
                 })

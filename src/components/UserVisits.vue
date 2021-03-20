@@ -21,7 +21,8 @@ import NavBar from '../components/NavBar'
 import VisitCard from '../components/VisitCard'
 import {reactive} from 'vue'
 import store from '../store'
-import axios from 'axios' 
+import axios from 'axios'
+import {AXIOS_LINKS} from '../links/AXIOS_LINKS'
 export default {
     name: 'UserVisits',
     components: {NavBar, VisitCard},
@@ -45,7 +46,7 @@ export default {
 function getVisits(id, visits) {
 
     // console.log(`id to ${id}`)
-    axios.post('http://localhost/fake-response/getVisits.php',{
+    axios.post(AXIOS_LINKS.GETVISITS,{
         'id':id
         })
     .then(function (response) {

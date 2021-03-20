@@ -13,6 +13,12 @@
                         Zaplanowane wizyty
                     </router-link>
                 </div>
+
+                <div class="zakladka" style="float: flex;">
+                    <router-link :to="{name: 'Login'}">
+                        Wyloguj się
+                    </router-link>
+                </div>
             </div>
         </nav>
 </template>
@@ -26,9 +32,9 @@ export default {
 
 <style lang="scss" scoped>
     .navigation__bar {
-
-        float: flex;
-        width: 100%;
+        
+        // float: flex;
+        width: 99%;
         font-size: 30px;
         padding: 20px;
         color: white;
@@ -46,6 +52,7 @@ export default {
                 background-color: rgba(255, 255, 255, 0.918);
             }
         }
+
     }
 
 </style>

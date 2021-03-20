@@ -20,14 +20,13 @@
 import Doctor from '../components/Doctor'
 import axios from 'axios';
 import NavBar from '../components/NavBar'
-// import store from '../store'
+import {AXIOS_LINKS} from '../links/AXIOS_LINKS'
 import {reactive} from 'vue'
 export default {
     name: 'UserHome',
     components: {Doctor, NavBar},
     setup() {
         const state = reactive({
-            // userId: store.state.UserStore.userId
             doctors: Array(),
         
         })
@@ -44,7 +43,7 @@ export default {
 
 
         function getDoctors(docs) {
-        axios.get('http://localhost/fake-response/getDoctors.php')
+        axios.get(AXIOS_LINKS.GETDOCTORS)
         .then(function (response) {
 
             console.log(response.data)
