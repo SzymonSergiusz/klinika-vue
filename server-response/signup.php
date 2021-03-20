@@ -32,7 +32,7 @@ else if ($password != $passwordValid || strlen($password) == 0) {
 else {
     $query = "INSERT INTO `users` VALUES(DEFAULT, '$firstname', '$surname', '$login', '$password')";
     mysqli_query($con, $query);
-    $response['succesful'] = true; //todo
+    $response['succesful'] = true;
     $response['message'] = 'Rejestracja sie powiodla';
 }
 

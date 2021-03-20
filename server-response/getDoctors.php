@@ -3,17 +3,11 @@ header('Content-type: text/html; charset=utf-8');
 header("Access-Control-Allow-Origin: *");
 include "config.php";
 
-// $data = json_decode(file_get_contents('php://input'), TRUE);
-
 $query = "SELECT * FROM `lekarze`";
 $result = mysqli_query($con, $query);
 
 $rows = array();
 while ($row = $result->fetch_assoc()) {
-    // echo $row['firstname'];
-    // echo 'siemas';
-    
-    
 
     $query_terminy = 'SELECT * FROM `terminy` WHERE `id_lekarza` ='.$row["id"].' AND `is_booked` = 0';
 

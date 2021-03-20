@@ -10,8 +10,6 @@ $login = $data['login'];
 
 $password = $data['password'];
 
-// echo $login.' '.$password;
-
 $userData = mysqli_query($con,'SELECT * from `users` WHERE `login`= "'.$login.'"');
 
 if(mysqli_num_rows($userData) == 0) {
@@ -41,11 +39,6 @@ if(mysqli_num_rows($userData) == 0) {
       ]);
    }
 }
-
-// echo $condition;
-
-
-// echo json_encode($response);
 
 exit;
 ?>
