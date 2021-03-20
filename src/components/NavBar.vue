@@ -13,22 +13,42 @@
                         Zaplanowane wizyty
                     </router-link>
                 </div>
+
+                <div class="zakladka" >
+                    <router-link :to="{name: 'Login'}" @click="logOut()">
+                        Wyloguj się
+                    </router-link>
+                </div>
             </div>
         </nav>
 </template>
 
 <script>
+import store from '../store'
+
 export default {
-    name: 'NavBar'
+    name: 'NavBar',
+    setup() {
+        function logOut() {
+            store.state.UserStore.userId = null
+            store.state.UserStore.isLogged = false
+            store.state.UserStore.firstname = ""
+
+        }
+        return {
+            logOut
+        }
+    }
 
 }
+
 </script>
 
 <style lang="scss" scoped>
     .navigation__bar {
-
-        float: flex;
-        width: 100%;
+        
+        // float: flex;
+        width: 99%;
         font-size: 30px;
         padding: 20px;
         color: white;
@@ -36,6 +56,7 @@ export default {
 
 
         .zakladka {
+            float: flex;
             display: inline;
             margin: 20px;
 

@@ -8,25 +8,13 @@
  
         </div>
 
-
-
-            <!-- <VisitCard
-            v-for="(item, index) in state.visits"
-            :key="index"
-            :visit_id = "item.visit_id"
-            :visit_time = "item.termin"
-            :doctors_firstname = "item.doctors_firstname"
-            :doctors_surname = "item.doctors_surname"
-            :doctors_specification="item.doctors_specification">
-            </VisitCard>
-             -->
     </div>
   
 </template>
 
 <script>
 import NavBar from '../components/NavBar'
-import VisitCard from '../components/VisitCard'
+
 import {reactive} from 'vue'
 import store from '../store'
 import axios from 'axios' 
@@ -43,11 +31,10 @@ export default {
         getVisits(store.state.UserStore.userId, state.visits)
         
         function cancelVisit(id) {
-            axios.post('http://klinika-paie-serwer.atwebpages.com/scripts/cancelVisit.php', {
+            axios.post('http://localhost/fake-response/cancelVisit.php', {
                 id: id
             })
             .then(function (response) {
-                console.log(response.data)
                 state.visits = []
                 getVisits(store.state.UserStore.userId, state.visits)
             }) 
@@ -62,13 +49,11 @@ export default {
 
 function getVisits(id, visits) {
     
-    // console.log(`id to ${id}`)
-    axios.post('http://klinika-paie-serwer.atwebpages.com/scripts/getVisits.php',{
+
+    axios.post('http://localhost/fake-response/getVisits.php',{
         'id':id
         })
     .then(function (response) {
-
-        console.log(response.data)
         
         response.data.forEach(element => {
             visits.push({

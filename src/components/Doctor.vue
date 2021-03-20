@@ -26,6 +26,7 @@ import {reactive} from 'vue'
 import store from '../store'
 import { useRouter } from "vue-router"
 import axios from 'axios'
+import {AXIOS_LINKS} from '../links/AXIOS_LINKS'
 export default {
     name: 'Doctor',
     props: {
@@ -55,14 +56,14 @@ export default {
         
         
     function zarezerwuj() {
-        console.log(state.reg_time.registration_time)
-        axios.post('http://klinika-paie-serwer.atwebpages.com/scripts/booking.php', {
+
+        axios.post(AXIOS_LINKS.BOOKING, {
             'id_uzytkownika': store.state.UserStore.userId,
             'id_lekarza': state.reg_time.id_lekarza,
             'registration_time': state.reg_time.registration_time
         })
         .then(function (response) {
-            console.log(response.data)
+
             router.push({name: 'UserVisits'})
         })
     }

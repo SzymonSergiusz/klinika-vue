@@ -29,9 +29,9 @@
             <label v-if="state.passwordInput !== state.passwordValidInput">❌</label>
             
             <br>
-            <!-- <router-link to="/user"> -->
+
             <button class="nice-button">Zarejestruj się</button>
-            <!-- </router-link> -->
+
 
             <router-link to="/">
             <div class="failureMessage" v-if="state.failureSigning">{{state.failureMessage}}</div>
@@ -46,6 +46,7 @@
 import { reactive } from "vue"
 import { useRouter } from "vue-router"
 import axios from "axios"
+import {AXIOS_LINKS} from '../links/AXIOS_LINKS'
 export default {
     name: 'SignUp',
     setup() {
@@ -62,7 +63,7 @@ export default {
 
     function signUp() {
         
-        axios.post("http://klinika-paie-serwer.atwebpages.com/scripts/signup.php", {
+        axios.post(AXIOS_LINKS.SIGNUP, {
             firstname: state.firstnameInput,
             surname: state.surnameInput,
             login: state.loginInput,
@@ -70,15 +71,14 @@ export default {
             passwordValid: state.passwordValidInput,
         })
         .then(function (response) {
-            console.log(response.data)
+            
 
             if (response.data.succesful) {
-                console.log(response.data)
-                console.log('aaaaaaaaaaa')
+
                 router.push('/')
                   
             } else {
-                console.log('bbbbbbbbbbbb')
+
                 state.failureSigning = true
                 state.failureMessage = response.data.message
             }
@@ -129,8 +129,12 @@ export default {
         }
 
         .nice-button {
-            font-size: 20px;
-            margin: 5px;
+            border-width: 2px;
+            border-style: solid;
+            padding-bottom: 5px;
+            padding-top: 5px;
+            font-size: 25px;
+            margin-top: 20px;
         }
 
 

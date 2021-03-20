@@ -47,15 +47,8 @@ router.beforeEach(async (to, from, next) => {
   const requiresLogged = to.matched.some(record => record.meta.requiresLogged)
 
   if (requiresLogged && !isLogged && userId!=null) next({name: 'Login'})
-  // else if (isLogged) next({name: 'UserHome'})
   else next()
 
-
-  // if (isLogged && userId != null) {
-  //   next({path: `/user${userId}`})
-  // } else {
-  //   next({path: `/`})
-  // }
 })
 
 export default router

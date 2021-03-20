@@ -27,7 +27,7 @@ import { reactive } from 'vue';
 import { useRouter } from 'vue-router'
 import axios from 'axios';
 import store from '../store';
-
+import {AXIOS_LINKS} from '../links/AXIOS_LINKS'
 export default {
     name: "Login",
     components: {  },
@@ -43,20 +43,18 @@ export default {
 
         function login(login, password) {
             
-            axios.post('http://klinika-paie-serwer.atwebpages.com/scripts/login.php',{
+            axios.post(AXIOS_LINKS.LOGIN,{
                 'login': login,
                 'password': password
                 })
             .then(function (response) {
-                console.log(response.data)
                 if (response.data.succesfulLog) {
-                    //tu dodać vuex z userem
                     store.state.UserStore.userId = response.data.id
                     store.state.UserStore.isLogged = true
                     store.state.UserStore.firstname = response.data.firstname
                     const userId = store.state.UserStore.userId
                     route.push(`user${userId}`)
-                    // route.push(`user`)
+
                 } else {
                     state.falseData = true
                     state.falseDataMessage = response.data.message
@@ -82,7 +80,6 @@ export default {
 
 .login__div {
     display: block;
-    // display: grid;
     grid-template-columns: 1fr 3fr;
     text-align: center;
     justify-content: center;
@@ -112,7 +109,6 @@ export default {
             padding-top: 5px;
             font-size: 25px;
             margin-top: 20px;
-            // margin: 5px;
         }
 
 

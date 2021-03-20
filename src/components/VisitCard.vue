@@ -10,6 +10,8 @@
 import {reactive} from 'vue';
 import axios from 'axios'
 import { useRouter } from "vue-router"
+import {AXIOS_LINKS} from '../links/AXIOS_LINKS'
+
 export default {
     name: 'VisitCard',
     props: {
@@ -45,11 +47,10 @@ export default {
             
         })
         function cancelVisit() {
-            axios.post('http://klinika-paie-serwer.atwebpages.com/scripts/cancelVisit.php', {
+            axios.post(AXIOS_LINKS.CANCELVISIT, {
                 id: state.visit_id
             })
             .then(function (response) {
-                console.log(response.data)
                 router.push({name: 'UserHome'})
             }) 
         }
