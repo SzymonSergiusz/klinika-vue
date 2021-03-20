@@ -12,6 +12,8 @@
   </nav>
 
   <router-view/>
+
+
 </div>
 </template>
 
