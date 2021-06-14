@@ -1,5 +1,8 @@
 Simple login system created with Vue.js on frontend and PHP scripts on backend.
 
+try it on
+http://klinika-vue.herokuapp.com
+
 # klinika-vue
 
 ## Project setup
