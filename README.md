@@ -1,3 +1,5 @@
+Simple login system created with Vue.js on frontend and PHP scripts on backend.
+
 # klinika-vue
 
 ## Project setup
